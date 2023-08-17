@@ -19,17 +19,17 @@ const modelMap: {
         outfit?: OutfitParams
     }
 } = {
-   
-    jacket: {
-        file: "jacket.glb", avatar: false,
+   onesie: {
+        file: "onesie.glb", avatar: false,
         outfit: {
             occluders: [/Head$/, /Body/],
-            hidden: [/Eye/, /Teeth/, /Bottom/, /Footwear/, /Glasses/]
+            hidden: [/Eye/, /Teeth/, /Footwear/]
         }
     }
+  
 }
-let model = "jacket";
-let avatar = modelMap["jacket"].avatar;
+let model = "onesie";
+let avatar = modelMap["onesie"].avatar;
 
 // Create spinner element
 function createSpinner() {
