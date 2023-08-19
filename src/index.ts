@@ -19,17 +19,14 @@ const modelMap: {
         outfit?: OutfitParams
     }
 } = {
-   onesie: {
-        file: "onesie.glb", avatar: false,
-        outfit: {
-            occluders: [/Head$/, /Body/],
-            hidden: [/Eye/, /Teeth/, /Footwear/]
-        }
+   suit: {
+        file: "suit.glb", avatar: false,
+    
     }
   
 }
-let model = "onesie";
-let avatar = modelMap["onesie"].avatar;
+let model = "suit";
+let avatar = modelMap["suit"].avatar;
 
 // Create spinner element
 function createSpinner() {
@@ -53,7 +50,7 @@ async function main() {
     if (!container)
         return;
     const renderer = new AvatarRenderer(
-        container, "crop", !rear, modelMap[model].file,
+        container, "fit", !rear, modelMap[model].file,
         avatar ? undefined : modelMap[model].outfit);
     // Camera switch
     const cameraSwitch = document.getElementById(
