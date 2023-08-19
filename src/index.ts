@@ -20,8 +20,11 @@ const modelMap: {
     }
 } = {
    suit: {
-        file: "suit.glb", avatar: false,
-    
+        file: "onesie1.glb", avatar: false,
+    outfit: {
+            occluders: [/Head$/, /Body/],
+           hidden: [/Eye/, /Teeth/, /Footwear/]
+        }
     }
   
 }
