@@ -19,21 +19,23 @@ const modelMap: {
         outfit?: OutfitParams
     }
 } = {
-   onesie1: {
-        file: "onesie1.glb", avatar: false,
-    outfit: {
-            occluders: [/Head$/, /Body/],
-           hidden: [/Eye/, /Teeth/, /Footwear/]
+    // wolf: {
+    //     file: "onesie1.glb", avatar: false,
+    //     outfit: {
+    //         occluders: [/Head$/, /Body/],
+    //         hidden: [/Eye/, /Teeth/, /Footwear/]
+    //     }
+    // },
+    wolf: {
+        file: "wolf.glb", avatar: false,
+         outfit: {
+            occluders: [/Head$/, /Body/]
         }
-    },
-    suit: {
-        file: "suit.glb", avatar: false,
-
     }
-  
+
 }
-let model = "onesie1";
-let avatar = modelMap["onesie1"].avatar;
+let model = "wolf";
+let avatar = modelMap["wolf"].avatar;
 
 // Create spinner element
 function createSpinner() {
@@ -91,7 +93,7 @@ async function main() {
     }
     // Recorder
     const safari = navigator.userAgent.indexOf('Safari') > -1 &&
-                   navigator.userAgent.indexOf('Chrome') <= -1
+        navigator.userAgent.indexOf('Chrome') <= -1
     const ext = safari ? "mp4" : "webm";
     const recorder = new Recorder(renderer, "video/" + ext);
     const recordButton = document.getElementById(
