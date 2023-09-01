@@ -7,7 +7,7 @@ import "./index.css";
 // Engine
 const engine = new PoseEngine();
 const token = location.hostname === "localhost" ?
-    "29tfhXXz3Rl5aXyjlRtBzlKMmUmmWUFZ" : "0Z5FsOvFh_eUMORg00J167xogPRSut5c";
+    "jwRw1ZUPi64vO2b9G5S1hPOEMplhg933" : "0Z5FsOvFh_eUMORg00J167xogPRSut5c";
 
 // Parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -26,16 +26,16 @@ const modelMap: {
     //         hidden: [/Eye/, /Teeth/, /Footwear/]
     //     }
     // },
-    wolf: {
-        file: "wolf.glb", avatar: false,
-         outfit: {
+    shirt: {
+        file: "Suit_test1.glb", avatar: false,
+                outfit: {
             occluders: [/Head$/, /Body/]
         }
     }
 
 }
-let model = "wolf";
-let avatar = modelMap["wolf"].avatar;
+let model = "shirt";
+let avatar = modelMap["shirt"].avatar;
 
 // Create spinner element
 function createSpinner() {
