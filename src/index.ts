@@ -27,7 +27,13 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "rs2.glb", avatar: false,
+        file: "rs3.glb", avatar: false,
+                outfit: {
+            occluders: [/Head$/, /Body/]
+        }
+    },
+       wolf: {
+        file: "st.glb", avatar: false,
                 outfit: {
             occluders: [/Head$/, /Body/]
         }
@@ -37,6 +43,7 @@ const modelMap: {
 let model = "shirt";
 let avatar = modelMap["shirt"].avatar;
 
+// Create spinner element
 // Create spinner element
 function createSpinner() {
     const container = document.createElement("div");
@@ -59,7 +66,7 @@ async function main() {
     if (!container)
         return;
     const renderer = new AvatarRenderer(
-        container, "fit", !rear, modelMap[model].file,
+        container, "crop", !rear, modelMap[model].file,
         avatar ? undefined : modelMap[model].outfit);
     // Camera switch
     const cameraSwitch = document.getElementById(
@@ -93,7 +100,7 @@ async function main() {
     }
     // Recorder
     const safari = navigator.userAgent.indexOf('Safari') > -1 &&
-        navigator.userAgent.indexOf('Chrome') <= -1
+                   navigator.userAgent.indexOf('Chrome') <= -1
     const ext = safari ? "mp4" : "webm";
     const recorder = new Recorder(renderer, "video/" + ext);
     const recordButton = document.getElementById(
