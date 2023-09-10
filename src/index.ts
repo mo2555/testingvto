@@ -27,16 +27,17 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "rs3.glb", avatar: false,
-                outfit: {
+        file: "final.glb", avatar: false,
+        outfit: {
             occluders: [/Head$/, /Body/]
         }
+          
     },
        wolf: {
-        file: "st.glb", avatar: false,
-                outfit: {
-            occluders: [/Head$/, /Body/]
-        }
+        file: "bot2.glb", avatar: false,
+        //         outfit: {
+        //     occluders: [/Head$/, /Body/]
+        // }
     }
 
 }
