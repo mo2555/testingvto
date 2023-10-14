@@ -7,7 +7,7 @@ import "./index.css";
 // Engine
 const engine = new PoseEngine();
 const token = location.hostname === "localhost" ?
-    "jwRw1ZUPi64vO2b9G5S1hPOEMplhg933" : "0Z5FsOvFh_eUMORg00J167xogPRSut5c";
+    "l8vd8BEZ0y2AwDOZJ8JoiGt0JI8YN_jx" : "0Z5FsOvFh_eUMORg00J167xogPRSut5c";
 
 // Parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -27,14 +27,14 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "v5.glb", avatar: false,
+        file: "onesie5.glb", avatar: false,
         outfit: {
             occluders: [/Head$/, /Body/]
         }
           
     },
        wolf: {
-        file: "28 suit_modeling_v4.glb", avatar: false,
+        file: "onesie5.glb", avatar: false,
                 outfit: {
             occluders: [/Head$/, /Body/]
         }
