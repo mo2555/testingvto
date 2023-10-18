@@ -27,14 +27,14 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "onesie5.glb", avatar: false,
+        file: "Suit16_V02.glb", avatar: false,
         outfit: {
             occluders: [/Head$/, /Body/]
         }
           
     },
        wolf: {
-        file: "onesie5.glb", avatar: false,
+        file: "Suit16_V02.glb", avatar: false,
                 outfit: {
             occluders: [/Head$/, /Body/]
         }
