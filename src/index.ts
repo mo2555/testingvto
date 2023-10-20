@@ -27,7 +27,7 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "Suit16_V02.glb", avatar: false,
+        file: "final_test.glb", avatar: false,
         outfit: {
             occluders: [/Head$/, /Body/]
         }
