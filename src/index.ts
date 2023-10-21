@@ -34,7 +34,7 @@ const modelMap: {
           
     },
        wolf: {
-        file: "Suit16_V02.glb", avatar: false,
+        file: "untitled.glb", avatar: false,
                 outfit: {
             occluders: [/Head$/, /Body/]
         }
