@@ -1,5 +1,6 @@
 
-import { PoseRenderer, PoseOutfitPlugin, OutfitParams } from "@geenee/bodyrenderers-babylon";
+import { PoseRenderer, PoseOutfitPlugin } from "@geenee/bodyrenderers-babylon";
+import { OutfitParams } from "@geenee/bodyrenderers-common";
 import { PoseResult } from "@geenee/bodyprocessors";
 import * as babylon from "@babylonjs/core";
 import "@babylonjs/loaders/glTF";
@@ -62,13 +63,8 @@ export class AvatarRenderer extends PoseRenderer {
         // Text model
         const gltf = await babylon.SceneLoader.
             LoadAssetContainerAsync("./", "text.glb", scene);
-        const textMesh = gltf.meshes.find((m) => m.id === "Text");
-        if (textMesh) {
-            textMesh.scaling.setAll(0.075);
-            textMesh.rotate(babylon.Vector3.Up(), Math.PI);
-            textMesh.rotate(babylon.Vector3.Right(), Math.PI / 2);
-        }
-        this.textModel = gltf.meshes.find((m) => m.id === "__root__");
+       
+
         gltf.addAllToScene();
     }
 
@@ -132,13 +128,8 @@ export class AvatarRenderer extends PoseRenderer {
             this.handsUp = true;
         if (cosMin < 0.7)
             this.handsUp = false;
-        // Position text model
-        const { textModel } = this;
-        if (textModel) {
-            const position = babylon.Vector3.Lerp(wristL, wristR, 0.5);
-            textModel.position = position;
-            textModel.setEnabled(this.handsUp);
-        }
+
+    
         await super.update(result, stream);
     }
 }

@@ -1,9 +1,93 @@
 import { PoseEngine } from "@geenee/bodyprocessors";
 import { Recorder } from "@geenee/armature";
-import { OutfitParams } from "@geenee/bodyrenderers-babylon";
+import { OutfitParams } from "@geenee/bodyrenderers-common";
 import { AvatarRenderer } from "./avatarrenderer";
+// import * as fs from 'fs';
 import "./index.css";
 
+
+const fileUrl = 'https://ahmedlotfysuits.com/storage/app/public/product/suit-files/2023-10-24-6536ea5163e58.testext'; // Replace with the URL of the remote file
+const destinationPath = 'output_file.testext'; // Replace with the local destination path
+
+async function downloadAndSaveFile(fileUrl: string, fileName: string): Promise<void> {
+  try {
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      console.error('Failed to download file. Status code:', response.status);
+      return;
+    }
+
+    const fileData = await response.blob(); // Convert response data to Blob
+
+    // Construct the relative path to your assets directory
+    const relativePathToAssets = './public/' + fileName;
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(fileData);
+    downloadLink.download = relativePathToAssets; // Use the relative path
+
+    downloadLink.style.display = 'none';
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+
+    URL.revokeObjectURL(downloadLink.href); // Clean up after the download
+    document.body.removeChild(downloadLink);
+
+    console.log('File downloaded and saved successfully.');
+  } catch (err) {
+    console.error('Error:', err);
+  }
+}
+
+//downloadAndSaveFile(fileUrl, destinationPath);
+
+
+
+
+// import { readFileSync, writeFileSync } from 'fs';
+// import { join } from 'path';
+// var fs = require('browserify-fs');
+ 
+// fs.mkdir('/home', function() {
+//     fs.writeFile('/home/hello-world.txt', 'Hello world!\n', function() {
+//         fs.readFile('/home/hello-world.txt', 'utf-8', function(err, data) {
+//             console.log(data);
+//         });
+//     });
+// });
+// var ss ;
+// fetch("https://ahmedlotfysuits.com/api/v4/token_with_file/42").then(res => res.json()).then(data =>
+//     fetch(data.file, {
+//         mode:'no-cors'
+//     }).then(response => response.blob()).then(
+//         blob => {
+//             let blobUrl = window.URL.createObjectURL(blob);
+//             let a = document.createElement('a');
+//             a.download = data.file
+//             a.href = blobUrl;
+//             document.body.appendChild(a)
+//             console.log(a.localName)
+//             a.click()
+//             a.remove()
+//         }
+//     )
+//  )
+// function downloadImage(url) {
+//     fetch(url, {
+//         mode:'no-cors'
+//     }).then(response => response.blob()).then(
+//         blob => {
+//             let blobUrl = window.URL.createObjectURL(blob);
+//             let a = document.createElement('a');
+//             a.download = url
+//             a.href = blobUrl;
+//             document.body.appendChild(a)
+//             a.click()
+//             a.remove()
+//         }
+//     )
+// }
 // Engine
 const engine = new PoseEngine();
 const token = location.hostname === "localhost" ?
@@ -27,7 +111,7 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "formal compressed.glb", avatar: false,
+        file: "https://fastupload.io/JibHREZlLpIL/n6E3xon2xupUlHD/l5YzMql52zyOA/test.glb", avatar: false,
         outfit: {
             occluders: [/Head$/, /Body/]
         }
