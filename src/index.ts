@@ -111,7 +111,7 @@ const modelMap: {
     //     }
     // },
     shirt: {
-        file: "https://fastupload.io/JibHREZlLpIL/n6E3xon2xupUlHD/l5YzMql52zyOA/test.glb", avatar: false,
+        file: "https://fastupload.io/WII9rYiksSXp/n6E3xon2xupUlHD/l5YzMql52zyOA/test.glb", avatar: false,
         outfit: {
             occluders: [/Head$/, /Body/]
         }
